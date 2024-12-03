@@ -1,11 +1,13 @@
 import prisma from "../_lib/db";
 
 export default async function Transactions() {
-  const transactions = await prisma.transaction.findMany();
+  const transactions = (await prisma.transaction.findMany()).sort(
+    (a, b) => Number(b.createdAt) - Number(a.createdAt)
+  );
 
   return (
     <div className="bg-primary-200 rounded-[0.8rem] w-7/12">
-      <div className=" overflow-scroll h-[55dvh]">
+      <div className="overflow-scroll h-[55dvh]">
         {transactions.map((transaction, index) => (
           <div
             key={transaction.id}
@@ -26,7 +28,7 @@ export default async function Transactions() {
               </span>
             </div>
 
-            <span>
+            <span className="inline-flex">
               {transaction.type === "withdrawal" ? "-" : ""}$
               {transaction.amount.toLocaleString()}
             </span>
