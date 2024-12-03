@@ -1,24 +1,7 @@
-export default function Transactions() {
-  const transactions = [
-    {
-      id: "234",
-      type: "deposit",
-      date: "12/23/2024",
-      amount: 2344,
-    },
-    {
-      id: "24564",
-      type: "withdrawal",
-      date: "12/23/2024",
-      amount: 5344,
-    },
-    {
-      id: "994",
-      type: "transfer",
-      date: "12/23/2024",
-      amount: 784,
-    },
-  ];
+import prisma from "../_lib/db";
+
+export default async function Transactions() {
+  const transactions = await prisma.transaction.findMany();
 
   return (
     <div className="bg-primary-200 rounded-[0.8rem] w-7/12">
@@ -38,7 +21,9 @@ export default function Transactions() {
               >
                 {transaction.type.toUpperCase()}
               </span>
-              <span className="text-xs">{transaction.date}</span>
+              <span className="text-xs">
+                {transaction.createdAt.toDateString()}
+              </span>
             </div>
 
             <span>

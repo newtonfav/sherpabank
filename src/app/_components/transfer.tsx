@@ -1,10 +1,11 @@
+import { transferMoney } from "@/src/actions/actions";
 import { ArrowLongRightIcon } from "@heroicons/react/16/solid";
 
 export default function Transfer() {
   return (
     <div className="transfer pt-6 pb-8 px-6 rounded-[0.8rem]">
       <p className="mb-4 font-medium text-black">Transfer Money</p>
-      <div className="inline-flex gap-3">
+      <form action={transferMoney} className="inline-flex gap-3">
         <input
           type="text"
           placeholder="account number"
@@ -18,7 +19,7 @@ export default function Transfer() {
         <button className="bg-primary-200 py-2 px-4 rounded-[0.4rem]">
           <ArrowLongRightIcon className="w-6" />
         </button>
-      </div>
+      </form>
     </div>
   );
 }
