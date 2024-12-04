@@ -1,3 +1,4 @@
+import getAccountBalance from "@/src/helpers/getAccountBalance";
 import prisma from "../_lib/db";
 import TextCopy from "./text-copy";
 
@@ -7,6 +8,14 @@ export default async function Balance() {
       username: "sherpas",
     },
   });
+
+  const transactions = await prisma.transaction.findMany({
+    where: {
+      Accountid: account?.id,
+    },
+  });
+
+  const balance = getAccountBalance(transactions);
 
   return (
     <div className="flex justify-between w-full mb-8">
@@ -18,7 +27,7 @@ export default async function Balance() {
         </span>
       </div>
       <div className="text-5xl inline-flex font-medium">
-        ${account?.balance.toLocaleString()}
+        ${balance.toLocaleString()}
       </div>
     </div>
   );

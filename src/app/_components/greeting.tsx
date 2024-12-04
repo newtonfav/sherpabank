@@ -1,5 +1,12 @@
-import React from "react";
-
 export default function Greeting() {
-  return <div className="mb-8 text-2xl font-medium">Good evening 👋🏼</div>;
+  const currentHour = new Date().getHours();
+
+  const greeting =
+    currentHour < 12
+      ? "Good morning"
+      : currentHour < 18
+      ? "Good afternoon"
+      : "Good evening";
+
+  return <div className="mb-8 text-2xl font-medium">{greeting} 👋🏼</div>;
 }

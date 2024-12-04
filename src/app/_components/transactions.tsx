@@ -1,3 +1,4 @@
+import formatTransactionTime from "@/src/helpers/formateTransactionTime";
 import prisma from "../_lib/db";
 
 export default async function Transactions() {
@@ -24,7 +25,7 @@ export default async function Transactions() {
                 {transaction.type.toUpperCase()}
               </span>
               <span className="text-xs">
-                {transaction.createdAt.toDateString()}
+                {formatTransactionTime(transaction.createdAt)}
               </span>
             </div>
 
