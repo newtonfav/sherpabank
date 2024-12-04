@@ -72,6 +72,14 @@ You can choose to deploy the application on vercel, connect your production data
 
 A fully automated test was carried out on the web application with selenium all test was successful, written in java
 
+![screenshot transaction component test](/tests/image.png)
+
+![screenshot transfer component test](/tests/transferComponent.png)
+
+![withdraw component](/tests/withdrawComponent.png)
+
+![deposit component](/tests/depositComponent.png)
+
 ## Technologies Used
 
 - React
