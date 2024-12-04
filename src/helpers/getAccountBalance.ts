@@ -1,5 +1,3 @@
-import { Prisma } from "@prisma/client";
-
 interface Transaction {
   id: string;
   type: string;
