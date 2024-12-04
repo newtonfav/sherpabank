@@ -19,6 +19,7 @@ export default function NavBar() {
             src={avatar}
             alt="profile image"
             className="w-12 rounded-full"
+            quality={100}
           />
         </div>
       </div>
