@@ -68,6 +68,10 @@ npx prisma studio
 
 You can choose to deploy the application on vercel, connect your production database, vercel automatically run the `vercel-build` script in package.json
 
+## Automated Test using selenium
+
+A fully automated test was carried out on the web application with selenium all test was successful, written in java
+
 ## Technologies Used
 
 - React
