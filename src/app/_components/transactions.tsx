@@ -12,7 +12,7 @@ export default async function Transactions() {
         {transactions.map((transaction, index) => (
           <div
             key={transaction.id}
-            className={`flex flex-row justify-between mx-6 py-6 ${
+            className={`flex flex-row justify-between transaction-item mx-6 py-6 ${
               index !== transactions.length - 1
                 ? "border-b border-primary-400"
                 : ""
