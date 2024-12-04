@@ -25,6 +25,26 @@ export default {
           "800": "#e62d5a",
         },
       },
+      screens: {
+        desktop: {
+          max: "1200px",
+        },
+        tabletLandscape: {
+          max: "980px",
+        },
+        tabletPortrait: {
+          max: "820px",
+        },
+        phone: {
+          max: "620px",
+        },
+        smallPhone: {
+          max: "460px",
+        },
+        smallerPhone: {
+          max: "380px",
+        },
+      },
     },
   },
   plugins: [],

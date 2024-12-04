@@ -4,7 +4,7 @@ import Withdraw from "./withdraw";
 
 export default function Operations() {
   return (
-    <div className="w-5/12 flex flex-col gap-4">
+    <div className="w-5/12 flex flex-col gap-4 tabletPortrait:w-full">
       <Transfer />
       <Deposit />
       <Withdraw />

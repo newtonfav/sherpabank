@@ -7,7 +7,7 @@ export default async function Transactions() {
   );
 
   return (
-    <div className="bg-primary-200 rounded-[0.8rem] w-7/12">
+    <div className="bg-primary-200 rounded-[0.8rem] w-7/12 tabletPortrait:w-full">
       <div className="overflow-scroll h-[55dvh]">
         {transactions.map((transaction, index) => (
           <div
@@ -18,9 +18,9 @@ export default async function Transactions() {
                 : ""
             }`}
           >
-            <div className="flex gap-4 items-center">
+            <div className="flex gap-4 smallerPhone:gap-2 items-center">
               <span
-                className={`px-3 py-1 text-xs rounded-[0.8rem] font-medium text-white ${transaction.type}`}
+                className={`px-3 py-1 text-xs rounded-[0.8rem] smallerPhone:text-[0.6rem] font-medium text-white ${transaction.type}`}
               >
                 {transaction.type.toUpperCase()}
               </span>
@@ -29,7 +29,7 @@ export default async function Transactions() {
               </span>
             </div>
 
-            <span className="inline-flex">
+            <span className="inline-flex smallerPhone:text-sm">
               {transaction.type === "withdrawal" ? "-" : ""}$
               {transaction.amount.toLocaleString()}
             </span>

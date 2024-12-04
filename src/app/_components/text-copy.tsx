@@ -18,7 +18,7 @@ export default function TextCopy({ text }: { text: string }) {
 
   return (
     <div className="flex items-center gap-1 transition-colors">
-      <p className="font-light text-primary-20 text-wrap flex-grow text-xs">
+      <p className="font-light text-primary-20 smallPhone:text-[0.6rem] text-wrap flex-grow text-xs">
         {text}
       </p>
       <button
