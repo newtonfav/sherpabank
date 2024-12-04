@@ -11,7 +11,6 @@ const initialTransaction: Prisma.TransactionCreateInput = {
       },
       create: {
         username: "sherpas",
-        balance: 1000,
         accountNumber: "GB29NWBK60161331926819",
       },
     },
@@ -26,7 +25,6 @@ async function main() {
   });
 
   console.log(`Created transaction with id: ${newTransaction.id}`);
-
   console.log("Seeding finished.");
 }
 

@@ -4,8 +4,9 @@ import { revalidatePath } from "next/cache";
 import prisma from "../app/_lib/db";
 import { validateAmount } from "../helpers/validate-amount";
 import { validateIBAN } from "../helpers/validate-iban";
+import getAccountBalance from "../helpers/getAccountBalance";
 
-const DEPOSIT_LIMIT = 10000000;
+const DEPOSIT_LIMIT = 100000;
 
 export async function transferMoney(
   state: { message: string },
@@ -43,7 +44,9 @@ export async function transferMoney(
       };
     }
 
-    if (account.balance < amount) {
+    const balance = await getBalance(account.id);
+
+    if (balance < amount) {
       return {
         success: false,
         message: "Insufficient balance",
@@ -55,15 +58,6 @@ export async function transferMoney(
         type: "transfer",
         amount,
         Accountid: account.id,
-      },
-    });
-
-    await prisma.account.update({
-      where: {
-        id: account.id,
-      },
-      data: {
-        balance: account.balance - amount,
       },
     });
 
@@ -108,7 +102,7 @@ export async function deposit(
     if (amount > DEPOSIT_LIMIT) {
       return {
         success: false,
-        message: `Maximum deposit amount is $10M`,
+        message: `Maximum deposit amount is $${DEPOSIT_LIMIT.toLocaleString()}`,
       };
     }
 
@@ -117,15 +111,6 @@ export async function deposit(
         type: "deposit",
         amount,
         Accountid: account.id,
-      },
-    });
-
-    await prisma.account.update({
-      where: {
-        id: account.id,
-      },
-      data: {
-        balance: account.balance + amount,
       },
     });
 
@@ -167,7 +152,9 @@ export async function withdraw(
       };
     }
 
-    if (account.balance < amount) {
+    const balance = await getBalance(account?.id);
+
+    if (balance < amount) {
       return {
         success: false,
         message: "Insufficient balance",
@@ -179,15 +166,6 @@ export async function withdraw(
         type: "withdrawal",
         amount,
         Accountid: account.id,
-      },
-    });
-
-    await prisma.account.update({
-      where: {
-        id: account.id,
-      },
-      data: {
-        balance: account.balance - amount,
       },
     });
 
@@ -216,4 +194,14 @@ export async function getAccount() {
   });
 
   return account;
+}
+
+export async function getBalance(accountId: string) {
+  const transactions = await prisma.transaction.findMany({
+    where: {
+      Accountid: accountId,
+    },
+  });
+
+  return getAccountBalance(transactions);
 }
