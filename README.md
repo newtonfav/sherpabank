@@ -32,13 +32,15 @@ POSTGRES_URL="postgresql://postgres:<your-password>@localhost:5432/<your-databas
 POSTGRES_PASSWORD="password"
 ```
 
+## Run in development mode
+
 start the development server
 
 ```bash
 npm run dev
 ```
 
-start docker
+start docker in a new terminal
 
 ```bash
 docker compose up
@@ -50,23 +52,21 @@ Run prisma generate for type safety
 npx prisma generate
 ```
 
-Generate migration
+Generate migration && seed database
 
 ```bash
 npx prisma migrate dev
 ```
 
-Seed the database
-
-```bash
-npx prisma db seed
-```
-
-Start prisma studio
+Start prisma studio in a new terminal
 
 ```bash
 npx prisma studio
 ```
+
+## Deployment
+
+You can choose to deploy the application on vercel, connect your production database, vercel automatically run the `vercel-build` script in package.json
 
 ## Technologies Used
 
