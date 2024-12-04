@@ -2,6 +2,8 @@
 
 SherpaBank is a fictional banking application designed to emulate real-world banking functionalities. The app includes features such as transaction handling, and real-time balance calculations. It leverages modern web technologies to provide a seamless user experience and integrates with a database for data persistence. The project highlights practical implementations of financial operations, making it a comprehensive model of how banking systems operate in real life.
 
+Here's the deployed version: https://sherpabank.vercel.app/
+
 # Getting Started
 
 Go to any directory on your machine:

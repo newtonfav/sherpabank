@@ -1,4 +1,3 @@
-import React from "react";
 import Logo from "./logo";
 import Image from "next/image";
 import avatar from "@/public/adediji.png";
