@@ -29,7 +29,7 @@ Create a `.env` file in the root directory and add your database connection stri
 ```bash
 POSTGRES_URL="postgresql://postgres:<your-password>@localhost:5432/<your-database>"
 
-POSTGRES_PASSWORD="password"
+POSTGRES_PASSWORD="<your-password>"
 ```
 
 ## Run in development mode
@@ -72,7 +72,7 @@ You can choose to deploy the application on vercel, connect your production data
 
 A fully automated test was carried out on the web application with selenium all test was successful, written in java
 
-![screenshot transaction component test](/tests/image.png)
+![screenshot transaction component test](/tests/transactionComponent.png)
 
 ![screenshot transfer component test](/tests/transferComponent.png)
 

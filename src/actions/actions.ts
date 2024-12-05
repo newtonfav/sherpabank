@@ -2,8 +2,8 @@
 
 import { revalidatePath } from "next/cache";
 import prisma from "../app/_lib/db";
-import { validateAmount } from "../helpers/validate-amount";
-import { validateIBAN } from "../helpers/validate-iban";
+import { validateAmount } from "../helpers/validateAmount";
+import { validateIBAN } from "../helpers/validateIban";
 import getAccountBalance from "../helpers/getAccountBalance";
 
 const DEPOSIT_LIMIT = 100000;

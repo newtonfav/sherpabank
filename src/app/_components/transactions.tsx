@@ -30,7 +30,7 @@ export default async function Transactions() {
             </div>
 
             <span className="inline-flex smallerPhone:text-sm">
-              {transaction.type === "withdrawal" ? "-" : ""}$
+              {transaction.type === "deposit" ? "" : "-"}$
               {transaction.amount.toLocaleString()}
             </span>
           </div>
