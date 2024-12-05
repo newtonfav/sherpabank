@@ -1,7 +1,9 @@
-export default function formatTransactionTime(createdAt: Date) {
-  const now = new Date();
+export default function formatTransactionTime(
+  createdAt: Date,
+  currentTime: Date
+) {
   const diffInMinutes = Math.floor(
-    (now.getTime() - createdAt.getTime()) / (1000 * 60)
+    (currentTime.getTime() - createdAt.getTime()) / (1000 * 60)
   );
   const diffInHours = Math.floor(diffInMinutes / 60);
   const diffInDays = Math.floor(diffInHours / 24);

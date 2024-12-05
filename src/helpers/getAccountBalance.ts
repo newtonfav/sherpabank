@@ -1,4 +1,4 @@
-interface Transaction {
+export interface ITransaction {
   id: string;
   type: string;
   amount: number;
@@ -7,7 +7,7 @@ interface Transaction {
   Accountid: string;
 }
 
-export default function getAccountBalance(transactions: Transaction[]) {
+export default function getAccountBalance(transactions: ITransaction[]) {
   return transactions.reduce((balance, transaction) => {
     if (transaction.type === "deposit") {
       return balance + transaction.amount;
